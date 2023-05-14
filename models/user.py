@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-""" Module amenity.py with class Amenity that inherits from BaseModel """
+"""Module user.py with class User that inherits from BaseModel."""
 
 from models.base_model import BaseModel
 
 
-class Amenity(BaseModel):
-    """Defines the amenities offered by a User.
-    Attributes:
-        name (str): name of the amenity
-    """
-    name = ""
+class User(BaseModel):
+    """Defines the attributes of a particular User."""
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
