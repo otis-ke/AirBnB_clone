@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module amenity.py with class Amenity that inherits from BaseModel """
+"""Module amenity.py with class Amenity that inherits from BaseModel."""
 
 from models.base_model import BaseModel
 
