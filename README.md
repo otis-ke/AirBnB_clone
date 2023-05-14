@@ -1,151 +1,167 @@
-AirBnB_clone
-The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
+0x00. AirBnB clone - The console
+0x00.Table of contents
+0x01 Introduction
+0x02 Environment
+0x03 Installation
+0x04 Testing
+0x05 Usage
+0x06 Authors
+0x01 Introduction
+Team project to build a clone of AirBnB.
 
-Functionalities of this command interpreter:
-Create a new object (ex: a new User or a new Place)
-Retrieve an object from a file, a database etc...
-Do operations on objects (count, compute stats, etc...)
-Update attributes of an object
-Destroy an object
-Table of Content
-Environment
-Installation
-File Descriptions
-Usage
-Examples of use
-Bugs
-Authors
-License
-Environment
-This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
+The console is a command interpreter to manage objects abstraction between objects and how they are stored.
 
+To see the fundamental background of the project visit the Wiki.
 
-Installation
-Clone this repository: git clone "https://github.com/otis-ke/AirBnB_clone.git"
-Access AirBnb directory: cd AirBnB_clone
-Run hbnb(interactively): ./console and enter command
-Run hbnb(non-interactively): echo "<command>" | ./console.py
-File Descriptions
-console.py - the console contains the entry point of the command interpreter. List of commands this console current supports:
+The console will perform the following tasks:
 
-EOF - exits console
-quit - exits console
-<emptyline> - overwrites default emptyline method and does nothing
-create - Creates a new instance ofBaseModel, saves it (to the JSON file) and prints the id
-destroy - Deletes an instance based on the class name and id (save the change into the JSON file).
-show - Prints the string representation of an instance based on the class name and id.
-all - Prints all string representation of all instances based or not on the class name.
-update - Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
-models/ directory contains classes used for this project:
-base_model.py - The BaseModel class from which future classes will be derived
+create a new object
+retrive an object from a file
+do operations on objects
+destroy an object
+Storage
+All the classes are handled by the Storage engine in the FileStorage Class.
 
-def __init__(self, *args, **kwargs) - Initialization of the base model
-def __str__(self) - String representation of the BaseModel class
-def save(self) - Updates the attribute updated_at with the current datetime
-def to_dict(self) - returns a dictionary containing all keys/values of the instance
-Classes inherited from Base Model:
+0x02 Environment
+Suite CRM terminal python Suite CRM Suite CRM git distributed version control system Github
 
-amenity.py
-city.py
-place.py
-review.py
-state.py
-user.py
-/models/engine directory contains File Storage class that handles JASON serialization and deserialization :
-file_storage.py - serializes instances to a JSON file & deserializes back to instances
+Style guidelines:
+pycodestyle (version 2.7.*)
+PEP8
+All the development and testing was runned over an operating system Ubuntu 20.04 LTS using programming language Python 3.8.3. The editors used were VIM 8.1.2269, VSCode 1.6.1 and Atom 1.58.0 . Control version using Git 2.25.1.
 
-def all(self) - returns the dictionary __objects
-def new(self, obj) - sets in __objects the obj with key .id
-def save(self) - serializes __objects to the JSON file (path: __file_path)
- def reload(self) - deserializes the JSON file to __objects
-/tests directory contains all unit test cases for this project:
-/test_models/test_base_model.py - Contains the TestBaseModel and TestBaseModelDocs classes TestBaseModelDocs class:
+0x03 Installation
+git clone https://github.com/aysuarex/AirBnB_clone.git
+change to the AirBnb directory and run the command:
 
-def setUpClass(cls)- Set up for the doc tests
-def test_pep8_conformance_base_model(self) - Test that models/base_model.py conforms to PEP8
-def test_pep8_conformance_test_base_model(self) - Test that tests/test_models/test_base_model.py conforms to PEP8
-def test_bm_module_docstring(self) - Test for the base_model.py module docstring
-def test_bm_class_docstring(self) - Test for the BaseModel class docstring
-def test_bm_func_docstrings(self) - Test for the presence of docstrings in BaseModel methods
-TestBaseModel class:
+ ./console.py
+Execution
+In interactive mode
 
-def test_is_base_model(self) - Test that the instatiation of a BaseModel works
-def test_created_at_instantiation(self) - Test created_at is a pub. instance attribute of type datetime
-def test_updated_at_instantiation(self) - Test updated_at is a pub. instance attribute of type datetime
-def test_diff_datetime_objs(self) - Test that two BaseModel instances have different datetime objects
-/test_models/test_amenity.py - Contains the TestAmenityDocs class:
-
-def setUpClass(cls) - Set up for the doc tests
-def test_pep8_conformance_amenity(self) - Test that models/amenity.py conforms to PEP8
-def test_pep8_conformance_test_amenity(self) - Test that tests/test_models/test_amenity.py conforms to PEP8
-def test_amenity_module_docstring(self) - Test for the amenity.py module docstring
-def test_amenity_class_docstring(self) - Test for the Amenity class docstring
-/test_models/test_city.py - Contains the TestCityDocs class:
-
-def setUpClass(cls) - Set up for the doc tests
-def test_pep8_conformance_city(self) - Test that models/city.py conforms to PEP8
-def test_pep8_conformance_test_city(self) - Test that tests/test_models/test_city.py conforms to PEP8
-def test_city_module_docstring(self) - Test for the city.py module docstring
-def test_city_class_docstring(self) - Test for the City class docstring
-/test_models/test_file_storage.py - Contains the TestFileStorageDocs class:
-
-def setUpClass(cls) - Set up for the doc tests
-def test_pep8_conformance_file_storage(self) - Test that models/file_storage.py conforms to PEP8
-def test_pep8_conformance_test_file_storage(self) - Test that tests/test_models/test_file_storage.py conforms to PEP8
-def test_file_storage_module_docstring(self) - Test for the file_storage.py module docstring
-def test_file_storage_class_docstring(self) - Test for the FileStorage class docstring
-/test_models/test_place.py - Contains the TestPlaceDoc class:
-
-def setUpClass(cls) - Set up for the doc tests
-def test_pep8_conformance_place(self) - Test that models/place.py conforms to PEP8.
-def test_pep8_conformance_test_place(self) - Test that tests/test_models/test_place.py conforms to PEP8.
-def test_place_module_docstring(self) - Test for the place.py module docstring
-def test_place_class_docstring(self) - Test for the Place class docstring
-/test_models/test_review.py - Contains the TestReviewDocs class:
-
-def setUpClass(cls) - Set up for the doc tests
-def test_pep8_conformance_review(self) - Test that models/review.py conforms to PEP8
-def test_pep8_conformance_test_review(self) - Test that tests/test_models/test_review.py conforms to PEP8
-def test_review_module_docstring(self) - Test for the review.py module docstring
-def test_review_class_docstring(self) - Test for the Review class docstring
-/test_models/state.py - Contains the TestStateDocs class:
-
-def setUpClass(cls) - Set up for the doc tests
-def test_pep8_conformance_state(self) - Test that models/state.py conforms to PEP8
-def test_pep8_conformance_test_state(self) - Test that tests/test_models/test_state.py conforms to PEP8
-def test_state_module_docstring(self) - Test for the state.py module docstring
-def test_state_class_docstring(self) - Test for the State class docstring
-/test_models/user.py - Contains the TestUserDocs class:
-
-def setUpClass(cls) - Set up for the doc tests
-def test_pep8_conformance_user(self) - Test that models/user.py conforms to PEP8
-def test_pep8_conformance_test_user(self) - Test that tests/test_models/test_user.py conforms to PEP8
-def test_user_module_docstring(self) - Test for the user.py module docstring
-def test_user_class_docstring(self) - Test for the User class docstring
-Examples of use
-vagrantAirBnB_clone$./console.py
+$ ./console.py
 (hbnb) help
 
 Documented commands (type help <topic>):
 ========================================
-EOF  all  create  destroy  help  quit  show  update
+EOF  help  quit
 
-(hbnb) all MyModel
-** class doesn't exist **
-(hbnb) create BaseModel
-7da56403-cc45-4f1c-ad32-bfafeb2bb050
-(hbnb) all BaseModel
-[[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}]
-(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}
-(hbnb) destroy BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-** no instance found **
+(hbnb)
+(hbnb)
 (hbnb) quit
-Bugs
-No known bugs at this time.
+$
+in Non-interactive mode
 
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+0x04 Testing
+All the test are defined in the tests folder.
+
+Documentation
+Modules:
+python3 -c 'print(__import__("my_module").__doc__)'
+Classes:
+python3 -c 'print(__import__("my_module").MyClass.__doc__)'
+Functions (inside and outside a class):
+python3 -c 'print(__import__("my_module").my_function.__doc__)'
+and
+
+python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+Python Unit Tests
+unittest module
+File extension .py
+Files and folders star with test_
+Organization:for models/base.py, unit tests in: tests/test_models/test_base.py
+Execution command: python3 -m unittest discover tests
+or: python3 -m unittest tests/test_models/test_base.py
+run test in interactive mode
+echo "python3 -m unittest discover tests" | bash
+run test in non-interactive mode
+To run the tests in non-interactive mode, and discover all the test, you can use the command:
+
+python3 -m unittest discover tests
+0x05 Usage
+Start the console in interactive mode:
+$ ./console.py
+(hbnb)
+Use help to see the available commands:
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  count  create  destroy  help  quit  show  update
+
+(hbnb)
+Quit the console:
+(hbnb) quit
+$
+Commands
+The commands are displayed in the following format Command / usage / example with output
+
+Create
+Creates a new instance of a given class. The class' ID is printed and the instance is saved to the file file.json.
+
+create <class>
+(hbnb) create BaseModel
+6cfb47c4-a434-4da7-ac03-2122624c3762
+(hbnb)
+Show
+show <class> <id>
+(hbnb) show BaseModel 6cfb47c4-a434-4da7-ac03-2122624c3762
+[BaseModel] (a) [BaseModel] (6cfb47c4-a434-4da7-ac03-2122624c3762) {'id': '6cfb47c4-a434-4da7-ac03-2122624c3762', 'created_at': datetime.datetime(2021, 11, 14, 3, 28, 45, 571360), 'updated_at': datetime.datetime(2021, 11, 14, 3, 28, 45, 571389)}
+(hbnb)
+Destroy
+Deletes an instance of a given class with a given ID. Update the file.json
+
+(hbnb) create User
+0c98d2b8-7ffa-42b7-8009-d9d54b69a472
+(hbnb) destroy User 0c98d2b8-7ffa-42b7-8009-d9d54b69a472
+(hbnb) show User 0c98d2b8-7ffa-42b7-8009-d9d54b69a472
+** no instance found **
+(hbnb)
+all
+Prints all string representation of all instances of a given class. If no class is passed, all classes are printed.
+
+(hbnb) create BaseModel
+e45ddda9-eb80-4858-99a9-226d4f08a629
+(hbnb) all BaseModel
+["[BaseModel] (4c8f7ebc-257f-4ed1-b26b-e7aace459897) [BaseModel] (4c8f7ebc-257f-4ed1-b26b-e7aace459897) {'id': '4c8f7ebc-257f-4ed1-b26b-e7aace459897', 'created_at': datetime.datetime(2021, 11, 13, 22, 19, 19, 447155), 'updated_at': datetime.datetime(2021, 11, 13, 22, 19, 19, 447257), 'name': 'My First Model', 'my_number': 89}"]
+["[BaseMode
+count
+Prints the number of instances of a given class.
+
+(hbnb) create City
+4e01c33e-2564-42c2-b61c-17e512898bad
+(hbnb) create City
+e952b772-80a5-41e9-b728-6bc4dc5c21b4
+(hbnb) count City
+2
+(hbnb)
+update
+Updates an instance based on the class name, id, and kwargs passed. Update the file.json
+
+(hbnb) create User
+1afa163d-486e-467a-8d38-3040afeaa1a1
+(hbnb) update User 1afa163d-486e-467a-8d38-3040afeaa1a1 email "aysuarex@gmail.com"
+(hbnb) show User 1afa163d-486e-467a-8d38-3040afeaa1a1
+[User] (s) [User] (1afa163d-486e-467a-8d38-3040afeaa1a1) {'id': '1afa163d-486e-467a-8d38-3040afeaa1a1', 'created_at': datetime.datetime(2021, 11, 14, 23, 42, 10, 502157), 'updated_at': datetime.datetime(2021, 11, 14, 23, 42, 10, 502186), 'email': 'aysuarex@gmail.com'}
+(hbnb)
 Authors
-vincent otis     *  otis-ke github
-dadson mweya     *  Dadsonk
-
+vincent otis
+dadson mweya
