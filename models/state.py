@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+<<<<<<< HEAD
 """ holds class State"""
 import models
 from models.base_model import BaseModel, Base
@@ -34,3 +35,16 @@ class State(BaseModel, Base):
                 if city.state_id == self.id:
                     city_list.append(city)
             return city_list
+=======
+"""Module state.py with class State that inherits from BaseModel"""
+
+from models.base_model import BaseModel
+
+
+class State(BaseModel):
+    """Defines the attributes of a particular State.
+    Attributes:
+        name (str): name of the state
+    """
+    name = ""
+>>>>>>> 6ecacbae983f5aabb6c9a32dec7a8687b856cd1f

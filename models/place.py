@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/python
 """ holds class Place"""
 import models
@@ -78,3 +79,24 @@ class Place(BaseModel, Base):
                 if amenity.place_id == self.id:
                     amenity_list.append(amenity)
             return amenity_list
+=======
+#!/usr/bin/python3
+"""Module place.py with class Place that inherits from BaseModel."""
+
+from models.base_model import BaseModel
+
+
+class Place(BaseModel):
+    """Defines the attributes of a particular Place."""
+    city_id = ""
+    user_id = ""
+    name = ""
+    description = ""
+    number_bathrooms = 0
+    number_rooms = 0
+    max_guest = 0
+    price_by_night = 0
+    latitude = 0.0
+    longitude = 0.0
+    amenity_ids = []
+>>>>>>> 6ecacbae983f5aabb6c9a32dec7a8687b856cd1f
